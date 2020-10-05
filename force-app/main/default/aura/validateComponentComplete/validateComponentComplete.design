@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="isCompany" label="isCompany" description="Is Company"  />
+    <design:attribute name="companyName" label="Company Name" description="Company Name"  />
+    <design:attribute name="contactPerson" label="Contact Person" description="Contact Person"  />
+    <design:attribute name="email" label="Email" description="Email"  />
+</design:component>

@@ -1,0 +1,29 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <!-- Aura.Action attribute. -->
+    <aura:attribute name="validate" type="Aura.Action" />
+    <aura:attribute name="isCompany" type="String"/>
+    <aura:attribute name="companyName" type="String"/>
+    <aura:attribute name="contactPerson" type="String"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="options" type="List" default="[
+        {'label': 'Yes', 'value': 'Yes'},
+        {'label': 'No', 'value': 'No'}
+        ]"/>   
+    <lightning:radioGroup  
+        name="isCompanyChange"
+        label="Do you own a company?"
+        options="{!v.options}"
+        value="{!v.isCompany}"
+        onchange="{!c.handleIsCompanyChange}"
+        type="radio" />     
+        <br/> 
+    <aura:if isTrue="{!v.isCompany == 'Yes'}">
+        <lightning:input type="text" label="What is your company name?" value="{!v.companyName}" required="true"/>
+    </aura:if>
+    <aura:if isTrue="{!v.isCompany == 'No'}">
+        <lightning:input type="text" label="Contact person's name?" value="{!v.contactPerson}" required="true"/>
+    </aura:if>
+    <lightning:input type="text" label="Email" value="{!v.email}" required="true"/>
+
+</aura:component>
